@@ -47,7 +47,7 @@ public struct CiBuildRun: Codable, Identifiable {
 				let values = try decoder.container(keyedBy: StringCodingKey.self)
 				self.commitSha = try values.decodeIfPresent(String.self, forKey: "commitSha")
 				self.message = try values.decodeIfPresent(String.self, forKey: "message")
-				self.author = try values.decodeIfPresent(CiGitUser.self, forKey: "author")
+				self.author = try? values.decodeIfPresent(CiGitUser.self, forKey: "author")
 				self.committer = try values.decodeIfPresent(CiGitUser.self, forKey: "committer")
 				self.webURL = try values.decodeIfPresent(URL.self, forKey: "webUrl")
 			}
