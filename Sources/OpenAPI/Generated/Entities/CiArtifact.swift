@@ -42,7 +42,7 @@ public struct CiArtifact: Codable, Identifiable {
 			self.fileType = try values.decodeIfPresent(FileType.self, forKey: "fileType")
 			self.fileName = try values.decodeIfPresent(String.self, forKey: "fileName")
 			self.fileSize = try values.decodeIfPresent(Int.self, forKey: "fileSize")
-			self.downloadURL = try values.decodeIfPresent(URL.self, forKey: "downloadUrl")
+			self.downloadURL = try? values.decodeIfPresent(URL.self, forKey: "downloadUrl")
 		}
 
 		public func encode(to encoder: Encoder) throws {
